@@ -2,12 +2,9 @@ package br.edu.atitus.greetingservice.controllers;
 
 import br.edu.atitus.greetingservice.configs.GreetingConfig;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController //Indica que classe GreetingController lida com requisições HTTP.
 @RequestMapping("/greeting")
 public class GreetingController {
 
@@ -26,13 +23,18 @@ public class GreetingController {
     }
 
     @GetMapping({"", "/"}) //Caso seja pesquisado com '/' no final, funciona igual
-    public String getGreeting(
-            @RequestParam(required = false) String name //'required=false' torna opcional passar um nome.
-    ){
-        if (name == null || name.isEmpty()) {
+    public String getGreeting(@RequestParam(required = false) String name) { //'required=false' torna opcional passar nome.
+        return processGreeting(name);
+    }
+    @GetMapping({"/{name}"})
+    public String getGreetingPath(@PathVariable String name) {
+        return processGreeting(name);
+    }
+
+    private String processGreeting(String name){
+        if (name == null || name.isEmpty()){
             name = config.getDefaultName();
         }
-        String greetingReturn = String.format("%s %s!!!", config.getGreeting(), name);
-        return greetingReturn;
+        return String.format("%s %s!!!", config.getGreeting(),name);
     }
 }
