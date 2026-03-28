@@ -31,6 +31,11 @@ public class GreetingController {
         return processGreeting(name);
     }
 
+    @PostMapping
+    public String postGreeting(@RequestBody NameRequest request){
+        return processGreeting(request.getName());
+    }
+
     private String processGreeting(String name){
         if (name == null || name.isEmpty()){
             name = config.getDefaultName();
