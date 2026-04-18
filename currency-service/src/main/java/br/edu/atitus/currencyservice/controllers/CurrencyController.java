@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController /*Bean gerenciado pelo Spring*/
-@RequestMapping("currency") //Essa controladora será mapeada
+@RequestMapping("currency") /*Essa controladora será mapeada*/
 public class CurrencyController {
     private final CurrencyRepository repository;
 

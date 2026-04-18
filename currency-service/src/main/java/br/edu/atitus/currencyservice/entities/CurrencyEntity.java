@@ -2,7 +2,7 @@ package br.edu.atitus.currencyservice.entities;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity /*Diz ao Spring que isso vira uma tabela no banco*/
 @Table(name = "tb_currency")
 public class CurrencyEntity {
 
