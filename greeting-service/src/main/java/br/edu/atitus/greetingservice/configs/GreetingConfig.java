@@ -4,19 +4,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "greeting-service")
+@ConfigurationProperties(prefix="greeting-service")
 public class GreetingConfig {
 
     private String greeting;
+
     private String defaultName;
-
-    public String getDefaultName() {
-        return defaultName;
-    }
-
-    public void setDefaultName(String defaultName) {
-        this.defaultName = defaultName;
-    }
 
     public String getGreeting() {
         return greeting;
@@ -24,5 +17,13 @@ public class GreetingConfig {
 
     public void setGreeting(String greeting) {
         this.greeting = greeting;
+    }
+
+    public String getDefaultName() {
+        return defaultName;
+    }
+
+    public void setDefaultName(String defaultName) {
+        this.defaultName = defaultName;
     }
 }

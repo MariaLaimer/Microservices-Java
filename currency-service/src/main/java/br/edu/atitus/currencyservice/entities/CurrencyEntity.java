@@ -2,18 +2,19 @@ package br.edu.atitus.currencyservice.entities;
 
 import jakarta.persistence.*;
 
-@Entity /*Diz ao Spring que isso vira uma tabela no banco*/
+@Entity
 @Table(name = "tb_currency")
 public class CurrencyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "sourceCurrency")
+
+    @Column(name = "source_currency")
     private String sourceCurrency;
-    @Column(name = "targetCurrency")
+    @Column(name = "target_currency")
     private String targetCurrency;
-    @Column(name = "conversionRate")
+    @Column(name = "conversion_rate")
     private Double conversionRate;
 
     public Long getId() {

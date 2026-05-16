@@ -1,6 +1,6 @@
-package br.edu.atitus.currencyservice.dtos;
+package br.edu.atitus.productservice.clients;
 
-public record CurrencyDTO(
+public record CurrencyResponse(
         String sourceCurrency,
         String targetCurrency,
         Double conversionRate,
